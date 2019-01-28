@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" href="/static/libs/iconfont/material-icons.css">
+    <link rel="stylesheet" href="/static/libs/fonts/segoe.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <transition name="loading">
+            <div class="loading" v-if="isloading">
+                <img src="static/loading.gif">
+            </div>
+        </transition>
+        <nav>
+            <div class="nav-wrapper">
+                <ul id="nav-mobile">
+                    <li :class="{active: menu=='home'}"><router-link to="/home"><i class="material-icons">home</i></router-link></li>
+                    <li :class="{active: menu=='dashboard'}"><router-link to="/dashboard">Dashboard</router-link></li>
+                    <li :class="{active: menu=='calendar'}"><router-link to="/calendar">Calendar</router-link></li>
+                    <li :class="{active: menu=='statistic'}"><router-link to="/statistic">Statistic</router-link></li>
+                    <li :class="{active: menu=='request'}" class="rel-counter-container">
+                        <router-link to="/requests">Requests</router-link>
+                        <span v-if="new_events_counter" class="counter" v-cloak>[[ new_events_counter ]]</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content" v-cloak>
+            <div class="row">
+                <div class="col s12" style="position: relative;">
+                    <div class="menu-button">
+                        <menu-button data-button-class="menu-button-a btn-large">
+                            <span><router-link to="/create-task" class="btn-floating" title="Задача"><i class="material-icons">work</i></router-link></span>
+                            <span><router-link to="/create-reminder" class="btn-floating" title="Напоминание"><i class="material-icons">alarm</i></router-link></span>
+                            <span><router-link to="/create-event" class="btn-floating" title="Календарь"><i class="material-icons">event</i></router-link></span>
+                        </menu-button>
+                    </div>
+                </div>
+            </div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <!--<script type="text/javascript" src="/static/libs/thrift/thrift.js"></script>-->
+    <!--<script type="text/javascript" src="/static/libs/thrift/calendar_service_types.js"></script>-->
+    <!--<script type="text/javascript" src="/static/libs/thrift/CalendarManager.js"></script>-->
+    <script type="text/javascript" src="/static/app.js"></script>
+</body>
+</html>
