@@ -89,7 +89,7 @@ def create_task():
         transport.close()
     except Exception as e:
         transport.close()
-        print(repr(e))
+        print("create_task: ", repr(e))
         abort(500)
 
     return jsonify({
@@ -105,7 +105,7 @@ def edit_task(tid):
         transport.close()
     except Exception as e:
         transport.close()
-        print(repr(e))
+        print("edit_task: ", repr(e))
         abort(500)
 
     return jsonify({
@@ -131,7 +131,7 @@ def create_event():
         transport.close()
     except Exception as e:
         transport.close()
-        print(repr(e))
+        print("create_event: ", repr(e))
         abort(500)
 
     return jsonify({
@@ -148,7 +148,7 @@ def edit_event(eid):
         transport.close()
     except Exception as e:
         transport.close()
-        print(repr(e))
+        print("edit_event: ", repr(e))
         abort(500)
 
     return jsonify({
@@ -178,7 +178,7 @@ def set_event_status():
         transport.close()
     except Exception as e:
         transport.close()
-        print(repr(e))
+        print("set_event_status: ", repr(e))
         abort(500)
     return jsonify({
             "status": "ok",

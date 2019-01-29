@@ -241,6 +241,18 @@ span.badge {
     float: right;
 }
 
+.validate {
+    position: relative;
+}
+
+span.error {
+    color: red;
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0rem;
+}
+
 .view-row {
     padding: 10px 50px;
 }

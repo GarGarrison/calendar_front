@@ -3,11 +3,9 @@
         <div @click="toggle" style="cursor: pointer;">
             <slot name="header"></slot>
         </div>
-        <!-- <transition @enter="enter" @leave="leave" :css="false" appear> -->
         <div class="acc_body" ref="acc_body">
             <slot name="body"></slot>
         </div>
-        <!-- </transition> -->
     </div>
 </template>
 <script>
@@ -22,8 +20,6 @@
         methods: {
             toggle: function(){
                 this.isOpen = !this.isOpen;
-                //if (this.isOpen) this.$parent.activeItem = this.index;
-                // else if (this.$parent.activeItem == this.index) this.$parent.activeItem = null;
             },
             show() {
                 this.$parent.activeItem = this.index
